@@ -1,0 +1,49 @@
+{
+  "name": "Countries",
+  "fields": [
+    {
+      "fieldName": "countryNameEn",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "countryNameAr",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "flagImagePath",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "currencyNameEn",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "currencyNameAr",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "exchangeRate",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "users",
+      "otherEntityRelationshipName": "countries",
+      "relationshipName": "users"
+    }
+  ],
+  "changelogDate": "20201214132509",
+  "entityTableName": "countries",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "jhipsterSampleApplication",
+  "applications": "*",
+  "microserviceName": "jhipsterSampleApplication"
+}

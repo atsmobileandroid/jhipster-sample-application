@@ -1,0 +1,104 @@
+
+entity Basket {
+	count Integer,
+    toId String,
+    addedDate String
+}
+
+entity Countries {
+  countryNameEn String,
+  countryNameAr String,
+  flagImagePath String ,
+  currencyNameEn String,
+  currencyNameAr String,
+  exchangeRate String  
+}
+
+entity Items {
+  title String,
+  description String,
+  imagePath String,
+  isLeaf Boolean 
+}
+
+entity ItemCodes {
+  code String
+}
+
+entity ItemPrices {
+  price String
+}
+
+entity Levels {
+  title String,
+  color String
+}
+
+
+entity Orders {
+  totalPrice String,
+  createdDate String,
+}
+
+entity OrderItems{
+  itemTitle String,
+  itemDescription String,
+  itemImagePath String,
+  itemPrice String,
+  itemCount Integer,
+  itemCodes String,
+  toId String,
+  isSentToId Boolean
+}
+
+
+entity Users {
+  email String,
+  password String,
+  fullName String,
+  countryId Integer,
+  userType Integer,
+  levelType Integer,
+  imagePath String,
+  phoneNumber String,
+  createdDate String,
+  isActive Boolean,
+  deviceType Integer,
+  deviceToken String,
+  balance String
+}
+
+entity UserType{
+  name String,
+}
+
+
+relationship OneToOne {
+    Users to Basket,
+    Items to ItemPrices,
+    ItemPrices to Levels
+}
+
+relationship ManyToOne {
+	Users to Countries,
+    Users to UserType
+}
+
+relationship OneToMany {
+	Users to Orders,
+    Orders to OrderItems,
+    Basket to Items,
+    Items to ItemCodes
+    Countries to Users,
+    UserType  to Users 
+}
+
+
+// Use Data Transfer Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

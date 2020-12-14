@@ -1,0 +1,22 @@
+{
+  "name": "UserType",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20201214133347",
+  "entityTableName": "user_type",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "jhipsterSampleApplication",
+  "applications": "*",
+  "microserviceName": "jhipsterSampleApplication"
+}

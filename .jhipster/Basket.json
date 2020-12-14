@@ -1,0 +1,37 @@
+{
+  "name": "Basket",
+  "fields": [
+    {
+      "fieldName": "count",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "toId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "addedDate",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "items",
+      "otherEntityRelationshipName": "basket",
+      "relationshipName": "items"
+    }
+  ],
+  "changelogDate": "20201214134236",
+  "entityTableName": "basket",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "jhipsterSampleApplication",
+  "applications": "*",
+  "microserviceName": "jhipsterSampleApplication"
+}

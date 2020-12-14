@@ -1,0 +1,102 @@
+
+entity Basket {
+	count Integer,
+    toId String,
+    addedDate String
+}
+
+entity Countries {
+  countryNameEn String NOT NULL,
+  countryNameAr String NOT NULL,
+  flagImagePath String  NOT NULL,
+  currencyNameEn String NOT NULL,
+  currencyNameAr String NOT NULL,
+  exchangeRate String   NOT NULL
+}
+
+entity Items {
+  title String NOT NULL,
+  description String DEFAULT NULL,
+  imagePath String NOT NULL,
+  isLeaf Boolean 
+}
+
+entity ItemCodes {
+  code String NOT NULL
+}
+
+entity ItemPrices {
+  price String NOT NULL
+}
+
+entity Levels {
+  title String NOT NULL,
+  color String NOT NULL
+}
+
+
+entity Orders {
+  totalPrice String NOT NULL
+  createdDate String NOT NULL
+}
+
+entity OrderItems{
+  itemTitle String NOT NULL,
+  itemDescription String DEFAULT NULL,
+  itemImagePath String NOT NULL,
+  itemPrice String NOT NULL,
+  itemCount Integer NOT NULL,
+  itemCodes String DEFAULT NULL,
+  toId String DEFAULT NULL,
+  isSentToId Boolean
+}
+
+
+entity Users {
+  email String NOT NULL,
+  password String DEFAULT NULL,
+  fullName String NOT NULL,
+  countryId Integer NOT NULL,
+  userType Integer NOT NULL,
+  levelType Integer NOT NULL,
+  imagePath String DEFAULT NULL,
+  phoneNumber String DEFAULT NULL,
+  createdDate String NOT NULL,
+  isActive Boolean,
+  deviceType Integer NOT NULL,
+  deviceToken String NOT NULL,
+  balance String DEFAULT NULL
+}
+
+entity UserType{
+  name String NOT NULL
+}
+
+
+relationship OneToOne {
+    Users to Basket,
+    Items to ItemPrices,
+    ItemPrices to Levels
+}
+
+relationship ManyToOne {
+	Users to Countries,
+    Users to UserType
+}
+
+relationship OneToMany {
+	Users to Orders,
+    Orders to OrderItems,
+    Basket to Items,
+    Items to ItemCodes
+}
+
+
+// Use Data Transfer Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
